@@ -1,5 +1,4 @@
-## 9주차
-
+# <9주차>
 # lambda
 a = lambda x, y : x + y
 print(a(5,5))
@@ -40,3 +39,83 @@ def test():
     print(a)
 test()
 print(a)
+
+# <10주차>
+# 클래스
+class MyClass():
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def print_info(self): # self = instance 자신
+        print(f"내 이름은 {self.name}입니다.")
+        print(f"내 나이는 {self.age}살입니다.")
+
+a = MyClass("파이썬", 10) # 객체(instance)
+b = MyClass("드론", 20) 
+
+a.print_info()
+b.print_info()
+
+print(id(a)) # 메모리 주소
+print(id(b))
+
+# 클래스 상속
+class Parent():
+    def __init__(self, name):
+        self.name = name
+    
+class Child(Parent):
+    pass
+
+a = Child("알파코")
+print(a.name)
+
+# Overriding
+class Animal():
+    def say(self, message):
+        print(message)
+
+class Dog(Animal):
+    def say(self, message):
+        print("멍멍") # Overriding(method)
+    
+a = Animal()
+b = Dog()
+
+a.say("안녕")
+b.say("안녕")
+
+# Drone Class
+class Drone():
+    def __init__(self, color, weight, speed):
+        self.color = color
+        self.weight = weight
+        self.speed = speed
+
+    def show_info(self):
+        print(f"색깔은 {self.color}입니다.")
+        print(f"무게는 {self.weight}kg입니다.")
+        print(f"속도는 {self.speed}입니다.")
+
+    def set_info(self, color, weight, speed):
+        self.color = color
+        self.weight = weight
+        self.speed = speed
+
+    def take_off(self):
+        print("이륙합니다.")
+
+class Codrone(Drone):
+    def pitch(self):
+        print("빠르게 앞으로 이동합니다.")
+
+a = Drone("노란", 3, 3)
+b = Codrone("파란", 5, 5)
+
+a.set_info("빨강", 4, 4)
+a.show_info()
+a.take_off()
+
+b.show_info()
+b.pitch()
